@@ -1,0 +1,12 @@
+<h1>Магазин товаров</h1>
+<a href="{% url 'product_create' %}">Добавить новый товар</a>
+<hr>
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> — {{ product.price }} руб.
+        </li>
+    {% empty %}
+        <li>Товаров пока нет.</li>
+    {% endfor %}
+</ul>

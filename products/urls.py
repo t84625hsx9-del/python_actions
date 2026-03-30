@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from products.views import ProductDetailView, ProductCreateView
+from products.views import ProductDetailView, ProductCreateView, ProductListView
 urlpatterns = [
-    path('', include('products.urls')),
+    path('', ProductListView.as_view(), name='product_list'),
+    path('create/', ProductCreateView.as_view(), name='product_create'),
+    path('<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
 ]
-
