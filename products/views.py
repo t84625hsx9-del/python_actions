@@ -24,7 +24,7 @@ class ProductDetailView(DetailView):
         log_product_view.delay(obj.name)
         
         # 3. Возвращаем товар, чтобы страница открылась
-        return obj
+        return obj 
 
 
 class ProductListView(ListView):
