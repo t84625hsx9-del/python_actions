@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить товар</title>
+</head>
+<body>
+    <h1>Добавить новый товар в магазин</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить товар</button>
+    </form>
+
+    <hr>
+    <a href="{% url 'product_list' %}">К списку товаров</a>
+</body>
+</html>

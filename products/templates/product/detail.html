@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    <h1>Детали товара: {{ product.name }}</h1>
+    
+    <ul>
+        <li><strong>ID:</strong> {{ product.id }}</li>
+        <li><strong>Название:</strong> {{ product.name }}</li>
+        <li><strong>Цена:</strong> {{ product.price }} руб.</li>
+    </ul>
+
+    <p><i>(При загрузке этой страницы Celery залогировал просмотр)</i></p>
+
+    <hr>
+    <a href="{% url 'product_create' %}">Добавить еще один</a>
+</body>
+</html>
