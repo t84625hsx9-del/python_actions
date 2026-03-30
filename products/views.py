@@ -17,14 +17,14 @@ class ProductDetailView(DetailView):
     
     
     def get_object(self, queryset=None):
-        # 1. Сначала получаем сам объект товара из базы
+        # 1. Получаем объект из базы
         obj = super().get_object(queryset)
         
-        # 2. СРАЗУ отправляем задачу в Celery
+        # 2. Отправляем задачу в Celery
         log_product_view.delay(obj.name)
         
-        # 3. Возвращаем товар, чтобы страница открылась
-        return obj 
+        # 3. Возвращаем объект (ОДИН раз)
+        return obj
 
 
 class ProductListView(ListView):
